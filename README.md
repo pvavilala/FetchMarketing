@@ -44,13 +44,13 @@ The image can be pulled from docker hub too
 docker pull pvavilala/fetchrewards:version1
 docker run -d --name fetchrewards -p 80:80 pvavilala/fetchrewardsimage:version1
 
-I wasn't able to test on fastapi's gui at 192.168.99.100/docs because i was on Dockers for windows but it should work. I verified it on the local host at http://127.0.0.1/docs , in the gui api pic between "cos" and "ngram" for the simStyle field.
+I wasn't able to test on fastapi's gui at 192.168.99.100/docs because i was on Dockers for windows but it should work. I verified it on the local host at http://127.0.0.1/docs , in the gui api choose between "cos" and "ngram" for the simStyle field. The ngramSize of greater than 0 must be provided when trying to test the ngram similarity measure.
 
 if you want use curl these are the commands to use
 
 **For Cosine Similarity**
 
-curl -X POST "http://127.0.0.1/fetch/textsimilarity" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"doc1\":\"The easiest way to earn points with Fetch Rewards is to just shop for the products you already love. If you have any participating brands on your receipt, you'll get points based on the cost of the products. You don't need to clip any coupons or scan individual barcodes. Just scan each grocery receipt after you shop and we'll find the savings for you.\",\"doc2\":\"We are always looking for opportunities for you to earn more points, which is why we also give you a selection of Special Offers. These Special Offers are opportunities to earn bonus points on top of the regular points you earn every time you purchase a participating brand. No need to pre-select these offers, we'll give you the points whether or not you knew about the offer. We just think it is easier that way.\",\"simStyle\":\"cos\",\"ngramSize\":3}"
+curl -X POST "http://127.0.0.1/fetch/textsimilarity" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"doc1\":\"The easiest way to earn points with Fetch Rewards is to just shop for the products you already love. If you have any participating brands on your receipt, you'll get points based on the cost of the products. You don't need to clip any coupons or scan individual barcodes. Just scan each grocery receipt after you shop and we'll find the savings for you.\",\"doc2\":\"We are always looking for opportunities for you to earn more points, which is why we also give you a selection of Special Offers. These Special Offers are opportunities to earn bonus points on top of the regular points you earn every time you purchase a participating brand. No need to pre-select these offers, we'll give you the points whether or not you knew about the offer. We just think it is easier that way.\",\"simStyle\":\"cos\",\"ngramSize\":0}"
 
 **For ngram similarity**
 
